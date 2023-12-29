@@ -18,6 +18,7 @@ public class Calc {
       exp = changeNegativeBracket(exp, pos[0], pos[1]);
     }
     exp = stripOuterBracket(exp);
+
     if (recursionDebug) {
       System.out.printf("exp(%d) : %s\n", runCallCount, exp);
     }
@@ -32,7 +33,7 @@ public class Calc {
     boolean needToSplit = exp.contains("(") || exp.contains(")");
 
     if (needToSplit) {  // -(10 + 5)
-
+      exp = exp.replaceAll("\\- ", "\\+ \\-");
       int splitPointIndex = findSplitPointIndex(exp);
 
       String firstExp = exp.substring(0, splitPointIndex);
