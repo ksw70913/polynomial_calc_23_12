@@ -193,10 +193,14 @@ public class CalcTest {
   }
 
   @Test
-  @DisplayName("1 * 2 + 3 == 5")
+  @DisplayName("3 * 1 + (1 - (4 * 1 - (1 - 1))) == 0")
   void t32() {
-    assertThat(Calc.run("1 * 2 + 3")).isEqualTo(5);
+    assertThat(Calc.run("3 * 1 + (1 - (4 * 1 - (1 - 1)))")).isEqualTo(0);
   }
 
+  @Test
+  @DisplayName("1 * 2 + 3 == 5")
+  void t33() {
+    assertThat(Calc.run("1 * 2 + 3")).isEqualTo(5);
+  }
 }
-
